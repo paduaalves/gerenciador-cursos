@@ -1,5 +1,8 @@
 package br.com.alura;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class TestaCursoComAluno {
 	public static void main(String[] args) {
 		Curso javaColecoes = Curso.builder().nome("Dominando Coleções do java").instrutor("Paulo Silveira").build();
@@ -14,17 +17,26 @@ public class TestaCursoComAluno {
 		javaColecoes.matricula(a1, a2, a3);
 
 		System.out.println("Alunos Matriculados: ");
+
+		Set<Aluno> alunos = javaColecoes.getAlunos();
+		Iterator<Aluno> iterator = alunos.iterator();
+
+		while (iterator.hasNext()) {
+			Aluno proximo = (Aluno) iterator.next();
+			System.out.println(proximo);
+		}
+
 		javaColecoes.getAlunos().forEach(a -> System.out.println(a));
 
 		System.out.println("O Aluno " + a1.getNome() + " está matriculado?: ");
 		System.out.println(javaColecoes.estaMatriculado(a1) ? "Sim" : "Não");
-		
+
 		Aluno padua = Aluno.builder().nome("Pádua Alves").numeroMatricula(1231).build();
 		System.out.println("E esse " + padua.getNome() + " está matriculado?: ");
 		System.out.println(javaColecoes.estaMatriculado(padua) ? "Sim" : "Não");
-		
+
 		System.out.println("O " + a1.getNome() + " é equals ao padua?: ");
 		System.out.println(a1.equals(padua) ? "Sim" : "Não");
-		
+
 	}
 }
