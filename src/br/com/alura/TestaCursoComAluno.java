@@ -16,5 +16,15 @@ public class TestaCursoComAluno {
 		System.out.println("Alunos Matriculados: ");
 		javaColecoes.getAlunos().forEach(a -> System.out.println(a));
 
+		System.out.println("O Aluno " + a1.getNome() + " está matriculado?: ");
+		System.out.println(javaColecoes.estaMatriculado(a1) ? "Sim" : "Não");
+		
+		Aluno padua = Aluno.builder().nome("Pádua Alves").numeroMatricula(1231).build();
+		System.out.println("E esse " + padua.getNome() + " está matriculado?: ");
+		System.out.println(javaColecoes.estaMatriculado(padua) ? "Sim" : "Não");
+		
+		System.out.println("O " + a1.getNome() + " é equals ao padua?: ");
+		System.out.println(a1.equals(padua) ? "Sim" : "Não");
+		
 	}
 }

@@ -47,4 +47,8 @@ public class Curso {
 		this.alunos.addAll(new HashSet<Aluno>(Arrays.asList(alunos)));
 	}
 
+	public boolean estaMatriculado(Aluno aluno) {
+		return alunos.contains(aluno);
+	}
+
 }
